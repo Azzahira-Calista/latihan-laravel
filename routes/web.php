@@ -28,7 +28,7 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return view('about', [
         "title" => "about page",
-        "nama" => "Calista",
+        "nama" => "Mie-san",
         "kelas" => "11 pplg 2",
         "foto" => "images/mie.jpg"
     ]);
@@ -36,7 +36,7 @@ Route::get('/about', function () {
 
 Route::group(['prefix' => '/students'], function () {
 
-    Route::get('/all', [StudentController::class, 'index']);
+    Route::get('/all', [StudentController::class, 'index'])->name('students.all');
 
     Route::get('/detail/{student}', [StudentController::class, 'show']);
 
@@ -69,7 +69,7 @@ Route::group(["prefix" => "/kelas"], function () {
 });
 
 Route::group(['prefix' => 'auth'], function () {
-    Route::get('/login', [AuthController::class, 'login']) ->middleware(['guest']);
+    Route::get('/login', [AuthController::class, 'login']) ->middleware(['guest'])->name('auth.login');
 
     Route::post('/login', [AuthController::class, 'auth']);
 

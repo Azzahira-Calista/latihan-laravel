@@ -10,6 +10,14 @@
     <h1>This is student page</h1>
     {{-- <a href="/students/create/" class="btn btn-outline-warning ">Add Student</a> --}}
 
+    <form class="mt-4" action="/students/all">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Search" name="search" value="{{request('search')}}">
+          <button class="btn btn-info" type="submit" id="button-addon2">Search</button>
+        </div>
+      </form>
+    
+
     <table class="table">
       <thead>
           <tr>

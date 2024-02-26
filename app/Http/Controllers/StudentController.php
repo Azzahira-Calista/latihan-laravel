@@ -12,7 +12,7 @@ class StudentController extends Controller
 
     public function index()
     {
-        $students = Student::with('kelas')->paginate(7);
+        $students = Student::with('kelas')->filter(request(['search']))->paginate(7);
         return view('students.student', [
             "title" => "student_page",
             "students" => $students
